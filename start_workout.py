@@ -8,17 +8,11 @@ positive_affirmations = ["you're doing better than expected human",
                          "good work!",
                          "you get cake after this. Just kidding.  that was a joke",
                          "29 isn't a bad age",
-                         "you're beautiful!",
                          "keep going",
-                         "you can fly! you can literally fly!  Where is the stairwell to the roof?",
+                         "keep it up",
+                         "go, go, go",
+                         "vas-y mec",
                          ]
-
-# def finish_wrapper(func):
-#     @functools.wraps(func)
-#     def inner_wrapper(*args):
-#         func(*args)
-#         return announce("HIT workout complete.  Great work, give yourself a pat on the backup drive.")
-#     return inner_wrapper()
 
 def announce(announcement):
     print(announcement)
@@ -34,11 +28,10 @@ def start_workout(exercises, num_cycles):
     sprint_duration = 6 * time_interval
     rest_duration = 2 * time_interval
     announce(
-        f'prepare for vigorous activity, human! you will go hard for {sprint_duration} seconds and rest for {rest_duration} seconds for each exercise')
+        f'prepare for vigorous activity, human. you will go hard for {sprint_duration} seconds and rest for {rest_duration} seconds for each exercise.')
     time.sleep(3)
 
     def all_excercises_once(exercises=exercises):
-
         def countdown(sprint_type, duration):
             thread_announcements(sprint_type)
             for i in list(range(0, duration, time_interval))[::-1]:
@@ -69,17 +62,20 @@ def start_workout(exercises, num_cycles):
             thread_announcements('Take a water break, you have 20 seconds.')
             time.sleep(20)
         else:
-            announce("HIT workout complete.  Great work, give yourself a pat on the backup drive.")
+            announce("HIIT workout complete.  Great work human, give yourself a pat on the backup drive.")
 
-    # announce('start')
-    # for i in list(range(0,sprint_duration, time_interval))[::-1]:
-    #     time.sleep(time_interval)
-    #     thread_ = threading.Thread(target=announce, args=(i,))
-    #     thread_.start()
 
 if __name__ == '__main__':
-    exercises = ['predator squats! '*3, 'plank! '*3, 'lunge! '*3, 'burpee! '*3, 'side skates! '*3, 'push-up! '*3, 'high-knee! '*3, 'jumping jacks! '*3]
-    init_time = time.time()
-    start_workout(exercises=exercises, num_cycles=1)
-    print(time.time()-init_time)
+    exercises = ['squats! '*3,
+                 'plank! '*3,
+                 'lunge! '*3,
+                 'Bicycles! '*3,
+                 'squats! '*3,
+                 'jumping jacks! '*3,
+                 'high-knee! '*3,
+                 'jumping jacks! '*3
+                 ]
 
+    init_time = time.time()
+    start_workout(exercises=exercises, num_cycles=2)
+    print(time.time()-init_time)
